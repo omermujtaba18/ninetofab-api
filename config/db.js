@@ -1,4 +1,5 @@
-const { Sequelize } = require('sequelize')
+const { Sequelize, DataTypes } = require('sequelize')
+require('dotenv').config()
 
 const db = new Sequelize(
   process.env.DATABASE,
@@ -6,8 +7,7 @@ const db = new Sequelize(
   process.env.PASSWORD,
   {
     host: process.env.HOST,
-    dialect: process.env.DIALECT,
-    logging: false
+    dialect: process.env.DIALECT
   }
 )
 
@@ -20,4 +20,4 @@ const authenticateDB = async () => {
   }
 }
 
-module.exports = { db, authenticateDB }
+module.exports = { db, authenticateDB, DataTypes }
